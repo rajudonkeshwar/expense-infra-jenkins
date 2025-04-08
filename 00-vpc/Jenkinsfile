@@ -14,7 +14,9 @@ pipeline {
     parameters {
         choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Select Action')
     }
+    
     stages {
+        
         stage('Init') {
             steps {
                 sh """
@@ -27,7 +29,6 @@ pipeline {
         stage('Plan') {
             steps {
                 withAWS(region: 'us-east-1', credentials: 'aws-creds') {
-                    
                     sh """
                         cd 00-vpc
                         terraform plan -out=tfplan
