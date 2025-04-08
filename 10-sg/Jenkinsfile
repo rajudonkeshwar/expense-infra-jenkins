@@ -48,6 +48,11 @@ pipeline {
             }
         }
         stage ('Destroy VPC') {
+
+            input {
+                message "Should we continue to destroy vpc ${params.ACTION}"
+                ok "Yes, we should."
+            }
             when {
                 expression { params.ACTION == 'destroy' }
             }
