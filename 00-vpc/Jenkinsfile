@@ -55,7 +55,7 @@ pipeline {
             steps {
                 sh 'echo "Running down stream job for sg10 job" '
                 // Trigger the downstream job
-                trigger(job: '10-sg', parameters: [string(name: 'ACTION', value: 'apply')]), wait: false
+                trigger(job: '10-sg', parameters: [string(name: 'ACTION', value: 'apply')], wait: false)
             }
         }
 
