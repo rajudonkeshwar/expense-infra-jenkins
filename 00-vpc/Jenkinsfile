@@ -52,6 +52,7 @@ pipeline {
 
 
         stage('Trigger SG as down stream') {
+            
             input {
                 message "Should we continue to creating of Security Group ${params.ACTION}"
                 ok "Yes, we should."
