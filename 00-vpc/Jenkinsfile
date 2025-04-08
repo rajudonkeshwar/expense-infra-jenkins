@@ -29,8 +29,6 @@ pipeline {
             }
         }
 
-
-    
         stage('Apply or Destroy') {
             /* input {
                 message "Should we continue to ${params.ACTION}"
@@ -51,6 +49,17 @@ pipeline {
                 }
             }
         }
+
+
+        stage('Trigger SG as down stream') {
+            steps {
+                sh 'echo "Running down stream job for sg10 job" '
+                // Trigger the downstream job
+                trigger(job: '10-sg', parameters: [string(name: 'ACTION', value: 'apply')]), wait: false
+            }
+        }
+
+
 
         }
 
