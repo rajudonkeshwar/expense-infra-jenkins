@@ -56,6 +56,8 @@ aws configure
 
 ```
 aws eks update-kubeconfig --region us-east-1 --name expense-dev
+(it is used to configure your local Kubernetes client (kubectl) to connect to an EKS (Elastic Kubernetes Service) cluster on AWS)
+
 ```
 
 ```
